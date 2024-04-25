@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS styles for enhancements */
+        /* Add your custom styles here */
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+
+        .search-result {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .search-result:hover {
+            background-color: #f0f0f0;
+        }
+
+        .location-input {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .location-display {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section (Top) -->
+    <header>
+        <h1>Craigslist</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="checkout.html">Checkout</a></li> <!-- Changed link to Checkout page -->
+                <li><a href="contact.html">Contact Us</a></li>
+                <!-- Added link to contact form -->
+                <li><a href="contact_form.html">Contact Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Search Bar -->
+        <section class="search-container">
+            <form id="search-form" action="services.html" method="GET">
+                <input type="text" class="search-input" placeholder="Search..." name="query">
+                <button type="submit" style="display: none;"></button> <!-- Hidden submit button -->
+            </form>
+            <div class="search-results"></div>
+            <!-- Location Filter -->
+            <input type="text" class="location-input" placeholder="Enter your location...">
+        </section>
+
+        <!-- Home Page Content -->
+        <section>
+            <h2>Welcome to Craigslist!</h2>
+            <p>Discover great deals and opportunities in your area.</p>
+            <!-- Browse Listings Link -->
+            <a href="listings.html" class="cta-button">Browse Listings</a>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section>
+            <h2>Customer Reviews</h2>
+            <div class="customer-review">
+                <p>"I love using Craigslist! It's so easy to find what I need and the prices are always great."</p>
+                <p class="review-author">- Molly Smith</p>
+            </div>
+        </section>
+
+        <!-- Deal of the Day Section -->
+        <section>
+            <h2>Deal of the Day</h2>
+            <div class="deal-of-the-day">
+                <img src="mac.jpg" alt="Deal of the Day">
+                <h3>50% Off on Selected Electronics!</h3>
+                <p>Don't miss out on our exclusive deal of the day! Get up to 50% off on selected electronics.</p>
+                <a href="services.html" class="cta-button">Shop Now</a> <!-- Updated link to go to services.html -->
+            </div>
+        </section>
+
+        <!-- Trending Products Section -->
+        <section>
+            <h2>Trending Products</h2>
+            <div class="trending-products">
+                <div class="product">
+                    <img src="iphone.jpg" alt="#1 Trending">
+                    <h3>Iphone 15</h3>
+                    <p>$1899.99</p>
+                </div>
+                <div class="product">
+                    <img src="headphones.jpg" alt="#2 Trending">
+                    <h3>Wireless Headphones</h3>
+                    <p>$129.99</p>
+                </div>
+                <div class="product">
+                    <img src="watch.jpg" alt="#3 Trending">
+                    <h3>Smart Watch</h3>
+                    <p>$199.99</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section (Bottom) -->
+    <footer>
+        <h1>Craigslist</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="checkout.html">Checkout</a></li> <!-- Changed link to Checkout page -->
+                <li><a href="contact.html">Contact Us</a></li>
+                <!-- Added link to contact form -->
+                <li><a href="contact_form.html">Contact Form</a></li>
+            </ul>
+        </nav>
+        <div class="footer-info">
+            <!-- Add additional footer information here -->
+            <p>&copy; 2024 Craigslist. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for enhancements (optional) -->
+    <script>
+        // Add your custom JavaScript for enhancements here
+        const searchInput = document.querySelector('.search-input');
+        const locationInput = document.querySelector('.location-input');
+        const searchResults = document.querySelector('.search-results');
+        const searchForm = document.getElementById('search-form');
+
+        // Mock data for auto suggestions
+        const suggestions = [
+            'Electronics',
+            'Fashion',
+            'Home Goods',
+            'Books',
+            'Toys',
+            'Sports Equipment',
+            'Tools',
+            'Beauty Products',
+            'Pet Supplies',
+            'Outdoor Gear'
+        ];
+
+        // Function to display auto suggestions
+        function displaySuggestions() {
+            const query = searchInput.value.toLowerCase();
+            const matchedSuggestions = suggestions.filter(suggestion =>
+                suggestion.toLowerCase().startsWith(query)
+            );
+            const html = matchedSuggestions.map(suggestion => `<div class="search-result">${suggestion}</div>`).join('');
+            searchResults.innerHTML = html;
+            searchResults.style.display = matchedSuggestions.length ? 'block' : 'none';
+        }
+
+        // Event listeners for search input field
+        searchInput.addEventListener('input', displaySuggestions);
+        document.addEventListener('click', event => {
+            if (!event.target.closest('.search-container')) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Event listener for location input field
+        locationInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const location = locationInput.value.trim();
+                if (location !== '') {
+                    // Display the entered location on the screen
+                    displayLocation(location);
+                }
+            }
+        });
+
+        // Function to display the entered location on the screen
+        function displayLocation(location) {
+            const locationDisplay = document.createElement('div');
+            locationDisplay.classList.add('location-display');
+            locationDisplay.textContent = `Location: ${location}`;
+            document.body.appendChild(locationDisplay);
+
+            // Remove the location display after 5 seconds
+            setTimeout(() => {
+                locationDisplay.remove();
+            }, 5000);
+        }
+
+        // Event listener for search form submission
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query !== '') {
+                // Redirect to services page with the search query as parameter
+                window.location.href = `services.html?query=${encodeURIComponent(query)}`;
+            }
+        });
+    </script>
+</body>
+</html>

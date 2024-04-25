@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Style the fonts, background color, and links -->
+    <style>
+        /* Apply Futura font to the entire document */
+        body, h1, h2, p, li {
+            font-family: "Futura", sans-serif;
+            font-weight: bold; /* Set font weight to bold */
+        }
+        /* Set background color and transition */
+        body {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            margin: 0; /* Remove default margin */
+            padding: 12px; /* Add padding */
+            transition: background 0.5s ease; /* Add transition */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Align headings and paragraphs to the center */
+        h1, h2, p {
+            text-align: center;
+        }
+        /* Style links */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        /* Style list items */
+        ul {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            position: fixed; /* Fixed positioning */
+            top: 50%; /* Align to the center vertically */
+            left: 20px; /* Position from the left */
+            transform: translateY(-50%); /* Center vertically */
+        }
+        li {
+            margin-bottom: 10px; /* Add spacing between items */
+        }
+        /* Style product listings */
+        .product {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            max-width: 400px; /* Limit the maximum width of the product */
+            width: 100%; /* Set the width to 100% */
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .product h2 {
+            margin-bottom: 10px;
+        }
+        .product p {
+            font-weight: normal;
+        }
+        /* Style shopping cart icon */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            z-index: 999;
+            cursor: pointer;
+        }
+        /* Style checkout button */
+        .checkout-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .checkout-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Craigslist</h1>
+        <!-- Shopping cart icon -->
+        <div class="cart-icon">&#128722;</div>
+    </header>
+    
+    <!-- Main Content Section -->
+    <main>
+        <!-- Dropdown menu for item categories -->
+        <div class="dropdown">
+            <label for="item-category">Select Item Category:</label>
+            <select id="item-category">
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="furniture">Furniture</option>
+                <option value="books">Books</option>
+                <option value="toys">Toys</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        
+        <!-- Product Section -->
+        <section>
+            <div class="product">
+                <img src="https://th.bing.com/th/id/OIP.9j0kj9e2UhR1jB6q-9MviAHaEt?w=263&h=180&c=7&r=0&o=5&dpr=1.8&pid=1.7" alt="Book">
+                <h2>Product 1</h2>
+                <p>$19.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://th.bing.com/th/id/OIP.twYBCe84CmECSa3TMXDW7wHaFL?w=256&h=180&c=7&r=0&o=5&dpr=1.8&pid=1.7" alt="Toys">
+                <h2>Product 2</h2>
+                <p>$29.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://th.bing.com/th/id/OIP.KXQWDsy7QH4wPxJkUpZ3dgHaC7?w=331&h=138&c=7&r=0&o=5&dpr=1.8&pid=1.7" alt="Electronics">
+                <h2>Product 3</h2>
+                <p>$39.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </section>
+        
+        <!-- Checkout button -->
+        <button class="checkout-btn" onclick="window.location.href='checkout.html'">Checkout</button>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="checkout.html">Checkout</a></li> <!-- Changed "Features" to "Checkout" -->
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
